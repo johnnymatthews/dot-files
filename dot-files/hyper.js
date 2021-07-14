@@ -55,7 +55,11 @@ module.exports = {
 
   plugins: [
       "hyper-font-ligatures", 
-      "hyperterm-gruvbox-dark"],
+      "hyperterm-gruvbox-dark",
+      // "hyper-one-dark",
+      // "hyper-one-light",
+  ],
+
 
   localPlugins: [],
 
