@@ -61,6 +61,7 @@ module.exports = {
   ],
 
 
+  // Windows location: /mnt/c/Users/USERNAME/AppData/Roaming/Hyper/.hyper_plugins/local/
   localPlugins: [],
 
   keymaps: {
