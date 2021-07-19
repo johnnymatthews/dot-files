@@ -6,7 +6,7 @@ module.exports = {
   config: {
     updateChannel: 'stable',
     fontSize: 14,
-    fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: 'Menlo, "JetBrains Mono Regular", Consolas, "Lucida Console", monospace',
     fontWeight: 'normal',
     fontWeightBold: 'bold',
     lineHeight: 1.5,
@@ -18,7 +18,7 @@ module.exports = {
     foregroundColor: '#fff',
     backgroundColor: '#000',
     selectionColor: 'rgba(248,28,229,0.3)',
-    borderColor: '#333',
+    borderColor: '#999',
     css: '',
     termCSS: '',
     showHamburgerMenu: '',
@@ -35,7 +35,7 @@ module.exports = {
       white: '#C7C7C7',
       lightBlack: '#686868',
       lightRed: '#FD6F6B',
-      lightGreen: '#67F86F',
+      lightGreen: '#FFF',
       lightYellow: '#FFFA72',
       lightBlue: '#6A76FB',
       lightMagenta: '#FD7CFC',
@@ -54,17 +54,18 @@ module.exports = {
   },
 
   plugins: [
-      "hyper-font-ligatures", 
       "hyperterm-gruvbox-dark",
-      // "hyper-one-dark",
-      // "hyper-one-light",
   ],
 
-
-  // Windows location: /mnt/c/Users/USERNAME/AppData/Roaming/Hyper/.hyper_plugins/local/
-  localPlugins: [],
+  localPlugins: [
+      "hyper-font-ligatures",
+      "hyperfull",
+      // "hyper-snazzy",
+      // "hyper-snazzy-light", 
+  ],
 
   keymaps: {
 
   },
 };
+
