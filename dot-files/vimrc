@@ -33,9 +33,21 @@ call plug#begin('~/.vim/plugged')
     Plug 'morhetz/gruvbox'
     " Plug 'connorholyday/vim-snazzy'
 
+    " Code completion
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+    " Fancy status line
+     Plug 'itchyny/lightline.vim'
+
 call plug#end()
 " -------------------------------------------
 
+
+" Lightline configuration
+" -----------------------
+set noshowmode
+set laststatus=2
+" -----------------------
 
 
 " THEMES
@@ -68,4 +80,18 @@ nnoremap <leader>ww :set wrap!<CR>
 :command Wq wq
 :command W w
 :command Q q
+
+" Switch theme between light and dark using <LEADER>bg
+map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+
+" Enable and disable CoC.
+function ToggleCoc()
+    if g:coc_enabled
+        CocDisable
+    else
+        CocEnable
+    endif
+endfunction
+map <leader>cc :call ToggleCoc()<CR>
+
 " -----------------------------------------------
