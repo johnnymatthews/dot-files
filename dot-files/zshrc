@@ -63,11 +63,7 @@ case `uname` in # Filter between MacOS and Linux
     ;;
 esac
 
-# Copy pass output using clip.exe
-function passc() {
-    pass $1 | head -n 1 | clip.exe 
-}
-
+alias syncnotes='cd ~/Notes && git pull && git add . && git commit -m "New content" && git push'
 # -----------------
 
 
