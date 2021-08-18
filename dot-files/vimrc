@@ -17,6 +17,7 @@ set cursorline              " Highlights current line.
 set background=dark         " Use $this terminal's $background theme.
 " ---------------
 
+
 " PLUG PLUGINS 
 " -------------------------------------------
 "  Try to install Plug, if it isn't already.
@@ -39,6 +40,10 @@ call plug#begin('~/.vim/plugged')
     " Fancy status line
      Plug 'itchyny/lightline.vim'
 
+    " Nice file manager
+    Plug 'preservim/nerdtree'
+
+
 call plug#end()
 " -------------------------------------------
 
@@ -50,6 +55,19 @@ set laststatus=2
 " -----------------------
 
 
+" Nerdtree configuration
+" ----------------------
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+
+" Toggle Nerdtree sidebar.
+nnoremap <C-t> :NERDTreeToggle<CR>
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" ----------------------
+
+
 " THEMES
 " ------
 " Use the Gruvbox theme.
@@ -57,7 +75,6 @@ autocmd vimenter * ++nested colorscheme gruvbox
 " colorscheme snazzy
 " colorscheme snazzybuddy
 " ------
-
 
 
 " KEY MAPS & KEY HACKS 
@@ -94,4 +111,5 @@ function ToggleCoc()
 endfunction
 map <leader>cc :call ToggleCoc()<CR>
 
+"
 " -----------------------------------------------
