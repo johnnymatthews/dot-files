@@ -2,8 +2,8 @@
 
 WORKING_DIR=$(pwd)
 DOT_FILES_DIR="./dot-files"
-GIT_EMAIL=""
-GIT_USERNAME=""
+GIT_EMAIL="johnnymatthews@pm.me"
+GIT_USERNAME="johnnymatthews"
 
 install_programs() {
     echo ">>> [Install programs] Started..."
@@ -16,6 +16,18 @@ install_programs() {
     brew install pass pass-otp tmux cmus neovim nodejs youtube-dl
     brew install --cask hyper
     echo ">>> [Install programs] Install brew apps completed."
+
+    echo ">>> [Install programs] Installing NVM..."
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+
+    # Load MVN.
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+    # Install latest node version.
+    nvm install node
+    
+    echo ">>> [Install programs] Install NVM completed."
 
     echo ">>> [Install programs] Complete."
 }
