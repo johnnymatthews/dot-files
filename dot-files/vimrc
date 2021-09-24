@@ -58,9 +58,6 @@ set laststatus=2
 
 " Nerdtree configuration
 " ----------------------
-" Start NERDTree and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
-
 " Toggle Nerdtree sidebar.
 nnoremap <C-t> :NERDTreeToggle<CR>
 
