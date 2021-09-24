@@ -9,3 +9,5 @@
     upstream-name = !git remote | egrep -o '(upstream|origin)' | tail -1
     head-branch = !basename $(git symbolic-ref refs/remotes/$(git upstream-name)/HEAD)
     cm = !git checkout $(git head-branch)
+[pull]
+    rebase = false

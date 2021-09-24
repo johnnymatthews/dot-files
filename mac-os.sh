@@ -2,8 +2,8 @@
 
 WORKING_DIR=$(pwd)
 DOT_FILES_DIR="./dot-files"
-GIT_EMAIL="johnnymatthews@pm.me"
-GIT_USERNAME="johnnymatthews"
+GIT_EMAIL=""
+GIT_USERNAME=""
 
 install_programs() {
     echo ">>> [Install programs] Started..."

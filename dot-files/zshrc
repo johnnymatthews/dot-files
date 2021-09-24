@@ -1,8 +1,12 @@
+# OPEN TMUX FIRST
+# ---------------
+[[ $TERM != "screen" ]] && exec tmux
+# ---------------
+
+
 # DEFAULT ZSH SETTINGS
 # --------------------
-# Filter between MacOS and Linux configs.
 export ZSH="$HOME/.oh-my-zsh"
-plugins=(git)
 source $ZSH/oh-my-zsh.sh
 cd ~
 # --------------------
@@ -15,7 +19,7 @@ plugins=(
     pass 
     git 
     zsh-autosuggestions
-    zsh-completions
+    zsh-syntax-highlighting
 )
 # -------
 
@@ -29,7 +33,6 @@ source ~/.config/zsh/minimal.zsh
 # EXPORTS
 # ------------
 export PATH=$PATH:/usr/local/go/bin
-export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0"
 # ------------
 
 
@@ -63,7 +66,25 @@ case `uname` in # Filter between MacOS and Linux
     ;;
 esac
 
-alias syncnotes='cd ~/Notes && git pull && git add . && git commit -m "New content" && git push'
+# Sync the ~/Notes folder with git.
+function syncnotes() {
+    cd ~/Notes
+    git pull
+    git add .
+    git commit -m "New content."
+    git push
+}
+
+# Stop the VPN blocking issue and restart it.
+function resetvpn() {
+    nmcli connection delete pvpn-ipv6leak-protection
+    protonvpn-cli connect --fastest
+}
+
+# Copy the contents of a file to the system clipboard.
+function copy(){
+    cat | xclip -selection clipboard
+}
 # -----------------
 
 
