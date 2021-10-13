@@ -39,6 +39,7 @@ export PATH=$PATH:/usr/local/go/bin
 # ALIASES
 # -------
 alias ytdl="cd ~/Downloads && youtube-dl -x "
+alias l="ls -l"
 # -------
 
 

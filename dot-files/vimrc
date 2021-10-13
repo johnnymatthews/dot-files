@@ -86,6 +86,7 @@ nnoremap <leader>ww :set wrap!<CR>
 :command Wq wq
 :command W w
 :command Q q
+:command Q! q!
 
 " Switch theme between light and dark using <LEADER>bg
 map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
