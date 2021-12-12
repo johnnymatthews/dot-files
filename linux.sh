@@ -13,6 +13,7 @@ main() {
     programs_alacritty
     programs_brave
     programs_cmus
+    programs_gnome_tweaks
     programs_node_js
     programs_pandoc
     programs_python3
@@ -31,7 +32,7 @@ apt_update_utils() {
 
     echo ">>> [APT and utils] Updating apt, cache, and install upgrades..."
     sudo apt update -y && sudo apt upgrade -y
-    sudo apt install git wget build-essential htop gnome-tweaks -y
+    sudo apt install git wget build-essential htop -y
      
     echo ">>> [APT and utils] Setting Git variables..."
     git config --global user.email "$GIT_EMAIL"
@@ -84,6 +85,14 @@ programs_cmus() {
     cmus-remote --raw ":bind -f common u shell ~/.config/cmus/update-library.sh"
 
     echo ">>> [Cmus] Install complete."
+}
+
+programs_gnome_tweaks() {
+    echo ">>> [Gnome Tweaks] Install started..."
+
+    sudo apt install gnome-tweaks gnome-shell-extension-autohidetopbar -y
+
+    echo ">>> [Gnome Tweaks] Install complete."
 }
 
 programs_node_js() {
