@@ -45,6 +45,9 @@ call plug#begin('~/.vim/plugged')
     " Svelte syntax highlighting
     Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
+    " Distraction free Markdown editing
+    Plug 'junegunn/goyo.vim'
+
 call plug#end()
 " -------------------------------------------
 
@@ -99,4 +102,12 @@ function ToggleCoc()
     endif
 endfunction
 map <leader>cc :call ToggleCoc()<CR>
+
+" Enable focus writing mode.
+function Focus()
+    Goyo
+    set linebreak
+endfunction
+map <leader>f :call Focus()<CR>
+
 " -----------------------------------------------
