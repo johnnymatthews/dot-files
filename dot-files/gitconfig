@@ -11,3 +11,4 @@
     cm = !git checkout $(git head-branch)
 [pull]
     rebase = false
+
