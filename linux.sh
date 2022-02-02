@@ -32,7 +32,7 @@ apt_update_utils() {
 
     echo ">>> [APT and utils] Updating apt, cache, and install upgrades..."
     sudo apt update -y && sudo apt upgrade -y
-    sudo apt install git wget build-essential htop atool -y
+    sudo apt install git wget build-essential htop atool snap -y
      
     echo ">>> [APT and utils] Setting Git variables..."
     git config --global user.email "$GIT_EMAIL"
