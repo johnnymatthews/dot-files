@@ -20,7 +20,7 @@ main() {
     programs_unix_pass
     programs_neovim
     programs_tmux
-    programs_youtube_dl
+    programs_ytdlp
     programs_zsh
 
     echo ""
@@ -159,12 +159,11 @@ programs_neovim() {
     echo ">>> [NeoVim] Install complete."
 }
 
-programs_youtube_dl() {
+programs_ytdlp() {
     echo ">>> [Youtube-dl] Install started..."
 
-    sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
-    sudo chmod a+rx /usr/local/bin/youtube-dl
-    sudo apt install ffmpeg -y
+    sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+    sudo chmod a+rx /usr/local/bin/yt-dlp
 
     echo ">>> [Youtube-dl] Install complete."
 }
