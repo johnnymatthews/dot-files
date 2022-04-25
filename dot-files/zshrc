@@ -4,14 +4,6 @@
 # ---------------
 
 
-# DEFAULT ZSH SETTINGS
-# --------------------
-export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
-cd ~
-# --------------------
-
-
 # PLUGINS
 # -------
 # Run `rm "$ZSH_COMPDUMP" && exec zsh` after changing these plugins
@@ -84,6 +76,24 @@ function resetvpn() {
 # -----------------
 
 
+
+
+# Use Neovim if it exists.
+# ------------------------
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
+# ------------------------
+
+
+
+# DEFAULT ZSH SETTINGS
+# --------------------
+export ZSH="$HOME/.oh-my-zsh"
+source $ZSH/oh-my-zsh.sh
+cd ~
+# --------------------
+
 # VIM MODE CONFIG 
 # ---------------
 bindkey -v                              # Active Vim mode.
@@ -108,11 +118,3 @@ preexec() {                             # Use beam shape cursor for each new pro
    echo -ne '\e[5 q'
 }
 # ---------------
-
-
-# Use Neovim if it exists.
-# ------------------------
-if type nvim > /dev/null 2>&1; then
-  alias vim='nvim'
-fi
-# ------------------------
