@@ -1,6 +1,7 @@
 # OPEN TMUX FIRST
 # ---------------
-[[ $TERM != "screen" ]] && exec tmux
+if [ "$TMUX" = "" ]; then tmux; fi
+TERM=xterm
 # ---------------
 
 
