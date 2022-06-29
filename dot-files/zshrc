@@ -11,7 +11,6 @@ TERM=xterm
 plugins=(
     pass 
     git 
-    zsh-autosuggestions
     zsh-syntax-highlighting
 )
 # -------
@@ -33,6 +32,7 @@ export PATH=$PATH:/usr/local/go/bin
 # -------
 alias ytdl="cd ~/Downloads && youtube-dl -x "
 alias l="ls -l"
+alias cd..="cd .."
 # -------
 
 
@@ -60,22 +60,18 @@ case `uname` in # Filter between MacOS and Linux
     ;;
 esac
 
-# Sync the ~/Notes folder with git.
-function syncnotes() {
-    cd ~/Notes
-    git pull
-    git add .
-    git commit -m "New content."
-    git push
-}
-
 # Stop the VPN blocking issue and restart it.
 function resetvpn() {
     nmcli connection delete pvpn-ipv6leak-protection
     protonvpn-cli connect --fastest
 }
-# -----------------
 
+# Convert file to mp3
+function converttomp3() {
+    trimmed=$(echo "$1" | cut -f 1 -d '.')
+    ffmpeg -i "$1" -f mp3 "$trimmed.mp3"
+}
+# -----------------
 
 
 
@@ -94,6 +90,8 @@ export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 cd ~
 # --------------------
+
+
 
 # VIM MODE CONFIG 
 # ---------------
