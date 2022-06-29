@@ -59,7 +59,7 @@ set_configs() {
 
     # Create CMUS update script and set it.
     mkdir ~/.config/cmus
-    cp dot-files/update-library.sh ~/.config/cmus/update-library.sh
+    cp scripts/update-library.sh ~/.config/cmus/update-library.sh
     chmod +x ~/.config/cmus/update-library.sh
     cmus-remote --raw ":bind -f common u shell ~/.config/cmus/update-library.sh"
 }
