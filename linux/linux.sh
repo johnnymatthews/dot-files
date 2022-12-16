@@ -174,6 +174,7 @@ programs_zsh() {
     sudo apt install zsh -y
     mkdir -p ~/.config/zsh
     cp dot-files/minimal.zsh ~/.config/zsh
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
     echo ">>> [Zsh] Install complete."

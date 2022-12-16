@@ -45,6 +45,15 @@ call plug#begin('~/.vim/plugged')
     " Distraction free Markdown editing
     Plug 'junegunn/goyo.vim'
 
+    " Solidity syntax highlighting.
+    Plug 'tomlion/vim-solidity'
+
+    " Comment out lines easily. Use `gcc` to comment/uncomment lines.
+    Plug 'tpope/vim-commentary'
+
+    " Nice Git integration.
+    Plug 'tpope/vim-fugitive'
+
 call plug#end()
 " -------------------------------------------
 
