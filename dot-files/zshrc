@@ -1,6 +1,6 @@
 # OPEN TMUX FIRST
 # ---------------
-if [ "$TMUX" = "" ]; then tmux; fi
+if [ "$TMUX" = "" ]; then tmux new-session \; split-window -v \; split-window -h; fi
 TERM=xterm
 # ---------------
 
@@ -30,9 +30,9 @@ export PATH=$PATH:/usr/local/go/bin
 
 # ALIASES
 # -------
-alias ytdl="cd ~/Downloads && youtube-dl -x "
 alias l="ls -l"
 alias cd..="cd .."
+alias tmux_tri="tmux new-session \; split-window -v \; split-window -h"
 # -------
 
 
@@ -61,15 +61,25 @@ case `uname` in # Filter between MacOS and Linux
 esac
 
 # Stop the VPN blocking issue and restart it.
-function resetvpn() {
+function reset_vpn() {
     nmcli connection delete pvpn-ipv6leak-protection
     protonvpn-cli connect --fastest
 }
 
 # Convert file to mp3
-function converttomp3() {
+function convert_to_mp3() {
     trimmed=$(echo "$1" | cut -f 1 -d '.')
     ffmpeg -i "$1" -f mp3 "$trimmed.mp3"
+}
+
+# Grab music from YouTube
+function grab_music() {
+    yt-dlp -x -o "%(title)s.%(ext)s" $1
+}
+
+# Get lorem ipsum
+function get_lorem_ipsum() {
+    curl https://loripsum.net/api/1/plaintext | pbcopy
 }
 # -----------------
 
@@ -117,3 +127,5 @@ preexec() {                             # Use beam shape cursor for each new pro
    echo -ne '\e[5 q'
 }
 # ---------------
+
+export PATH="$PATH:/Users/johnny/.foundry/bin"
