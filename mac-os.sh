@@ -45,13 +45,13 @@ install_programs() {
 set_configs() {
 
     # Copy config files to appropriate dirs.
-    mkdir ~/.config/alacritty && cp dot-files/alacritty.yml ~/.config/alacritty/
-    mkdir ~/.config/nvim && cp dot-files/init.vim ~/.config/nvim/
-    mkdir ~/.config/zsh && cp dot-files/minimal.zsh ~/.config/zsh/
-    mkdir ~/.config/tmux && cp dot-files/tmux.conf ~/.config/tmux/
-    cp dot-files/vimrc ~/.vimrc
-    cp dot-files/zshrc ~/.zshrc
-    cp dot-files/gitconfig ~/.gitconfig
+    mkdir ~/.config/alacritty && cp ./configs/alacritty.yml ~/.config/alacritty/
+    mkdir ~/.config/nvim && cp ./configs/init.vim ~/.config/nvim/
+    mkdir ~/.config/zsh && cp ./configs/minimal.zsh ~/.config/zsh/
+    mkdir ~/.config/tmux && cp ./configs/tmux.conf ~/.config/tmux/
+    cp ./configs/vimrc ~/.vimrc
+    cp ./configs/zshrc ~/.zshrc
+    cp ./configs/gitconfig ~/.gitconfig
 
     # Set Git variables
     git config --global user.email "$GIT_EMAIL"

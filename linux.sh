@@ -44,8 +44,8 @@ apt_update_utils() {
     ssh-add ~/.ssh/id_rsa
     
     echo ">>> [APT and utils] Copying config files..."
-    cp dot-files/zshrc ~/.zshrc
-    cp dot-files/vimrc ~/.vimrc
+    cp ./configs/zshrc ~/.zshrc
+    cp ./configs/vimrc ~/.vimrc
     sudo apt remove nano -y
 
     echo ">>> [APT and utils] Configuration complete."
@@ -56,7 +56,8 @@ programs_alacritty() {
 
     sudo apt install alacritty -y
     mkdir ~/.config/alacritty
-    cp dot-files/alacritty.yml ~/.config/alacritty/
+    cp ./configs/alacritty.yml ~/.config/alacritty/
+    npm install -g alacritty-themes
 
     echo ">>> [Alacritty] Install complete."
 }
@@ -80,7 +81,7 @@ programs_cmus() {
 
     sudo apt install cmus -y
     mkdir -p ~/.config/cmus
-    mv dot-files/scripts/update-library.sh ~/.config/cmus/update-library.sh
+    mv ./configs/scripts/update-library.sh ~/.config/cmus/update-library.sh
     chmod +x ~/.config/cmus/update-library.sh
     cmus-remote --raw ":bind -f common u shell ~/.config/cmus/update-library.sh"
 
@@ -128,7 +129,7 @@ programs_tmux() {
     echo ">>> [Tmux] Install started..."
 
     sudo apt install tmux -y
-    cp dot-files/tmux.conf ~/.tmux.conf
+    cp ./configs/tmux.conf ~/.tmux.conf
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
     echo ">>> [Tmux] Install complete."
@@ -153,7 +154,7 @@ programs_neovim() {
 
     sudo apt install neovim -y
     mkdir -p ~/.config/nvim
-    cp dot-files/init.vim ~/.config/nvim
+    cp ./configs/init.vim ~/.config/nvim
     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     
     echo ">>> [NeoVim] Install complete."
@@ -173,7 +174,7 @@ programs_zsh() {
 
     sudo apt install zsh -y
     mkdir -p ~/.config/zsh
-    cp dot-files/minimal.zsh ~/.config/zsh
+    cp ./configs/minimal.zsh ~/.config/zsh
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
