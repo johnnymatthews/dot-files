@@ -57,7 +57,6 @@ programs_alacritty() {
     sudo apt install alacritty -y
     mkdir ~/.config/alacritty
     cp ./configs/alacritty.yml ~/.config/alacritty/
-    npm install -g alacritty-themes
 
     echo ">>> [Alacritty] Install complete."
 }
@@ -104,6 +103,7 @@ programs_node_js() {
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion  
     nvm install node 
+    npm install -g alacritty-themes
 
     echo ">>> [Node.js] Install complete."
 }
@@ -123,6 +123,15 @@ programs_python3() {
     sudo apt-get autoremove --purge
 
     echo ">>> [Python3] Install complete."
+}
+
+programs_signal() {
+    # Steps taken from Signal's official guidelines: https://signal.org/en/download
+    wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
+    cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
+    echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
+    sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+    sudo apt update && sudo apt install signal-desktop
 }
 
 programs_tmux() {
