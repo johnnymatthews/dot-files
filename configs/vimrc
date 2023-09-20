@@ -86,9 +86,6 @@ let mapleader = " "
 nnoremap j jzz
 nnoremap k kzz
 
-" Format/indent the entire file, from the top.
-nnoremap <leader>f gg=G<CR>
-
 " Toggle word-wrap.
 nnoremap <leader>ww :set wrap!<CR>
 
@@ -97,9 +94,6 @@ nnoremap <leader>ww :set wrap!<CR>
 :command Wq wq
 :command W w
 :command Q q
-
-" Switch theme between light and dark using <LEADER>bg
-map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 " Enable and disable CoC.
 function ToggleCoc()
@@ -111,14 +105,6 @@ function ToggleCoc()
 endfunction
 map <leader>cc :call ToggleCoc()<CR>
 
-" Fix markdown issues.
-function FixMarkdown()
-    if g:coc_enabled
-        CocCommand markdownlint.fixAll
-    endif
-endfunction
-map <leader>mf :call FixMarkdown()<CR>
-
 " Enable focus writing mode.
 function Focus()
     Goyo
@@ -126,6 +112,5 @@ function Focus()
     hi CursorLine cterm=none
     CocDisable
 endfunction
-map <leader>f :call Focus()<CR>
-
+map <leader>fo :call Focus()<CR>
 " -----------------------------------------------
