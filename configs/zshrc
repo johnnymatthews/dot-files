@@ -1,8 +1,11 @@
 # OPEN TMUX FIRST
 # ---------------
-if [ "$TMUX" = "" ]; then tmux new-session \; split-window -v \; split-window -h; fi
-TERM=xterm
+if [ "$TMUX" = "" ]; then tmux; fi
+# TERM=xterm
 # ---------------
+
+GPG_TTY=`tty`
+export GPG_TTY
 
 
 # PLUGINS
@@ -24,7 +27,8 @@ source ~/.config/zsh/minimal.zsh
 
 # EXPORTS
 # ------------
-export PATH=$PATH:/usr/local/go/bin
+# export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/Users/johnny/Applications/go/bin
 # ------------
 
 
@@ -129,3 +133,5 @@ preexec() {                             # Use beam shape cursor for each new pro
 # ---------------
 
 export PATH="$PATH:/Users/johnny/.foundry/bin"
+eval "$(starship init zsh)"
+export PATH="/opt/homebrew/opt/gnupg@2.2/bin:$PATH"
