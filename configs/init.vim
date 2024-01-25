@@ -34,6 +34,11 @@ endif
 " Install these plugins.
 call plug#begin('~/.vim/plugged')
 
+    " Fuzzy finder search thingy.
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
+
     " Preview .md files in browser
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
@@ -53,6 +58,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'lewis6991/gitsigns.nvim' " OPTIONAL: for git status
     Plug 'nvim-tree/nvim-web-devicons' "\ OPTIONAL: for file icons
     Plug 'romgrk/barbar.nvim'
+
+    " Floating terminal.
+    Plug 'voldikss/vim-floaterm'
 
 call plug#end()
 
@@ -102,6 +110,16 @@ nnoremap <silent>    <A-0> <Cmd>BufferLast<CR>
 nnoremap <silent>    <A-c> <Cmd>BufferClose<CR>
 " -------------------------------------------------
 
+
+" Telescope seacher config.
+" -------------------------------------------------
+" Find files using Telescope command-line sugar.
+" nnoremap <leader>ff <cmd>Telescope find_files<cr>
+" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+" nnoremap <leader>fb <cmd>Telescope buffers<cr>
+" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+" -------------------------------------------------
+
 " ==============================================================================
 
 
@@ -119,7 +137,7 @@ nnoremap k kzz
 
 
 " Toggle word-wrap.
-nnoremap <leader>ww :set wrap!<CR>
+nnoremap <leader>two :set wrap!<CR>
 
 
 " If you accidentally use W or Q, it doesn't matter.
@@ -129,13 +147,16 @@ nnoremap <leader>ww :set wrap!<CR>
 :command Q q
 
 
-" Enable focus writing mode.
+" Toggle focus mode.
 function Focus()
     Goyo
     set linebreak
     hi CursorLine cterm=none
-    CocDisable
 endfunction
-map <leader>fo :call Focus()<CR>
+map <leader>tfo :call Focus()<CR>
+
+
+" Toggle git in a new floating terminal window.
+map <leader>tgi :FloatermNew lazygit<CR>
 
 " ==============================================================================
