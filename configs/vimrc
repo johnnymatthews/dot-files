@@ -1,5 +1,5 @@
 " GENERAL OPTIONS
-" ---------------
+" ==============================================================================
 syntax on
 set noerrorbells		    " Don't make any noises.
 set tabstop=4 softtabstop=4	" Use 4 spaces for tabs,
@@ -16,11 +16,13 @@ set incsearch			    " While you search you get results.
 set cursorline              " Highlights current line.
 set background=dark         " Use $this terminal's $background theme.
 set mouse=a                 " Scroll with the mouse wheel/touchpad.
-" ---------------
+" ==============================================================================
+
 
 
 " PLUG PLUGINS 
-" -------------------------------------------
+" ==============================================================================
+
 "  Try to install Plug, if it isn't already.
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -28,14 +30,12 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+
 " Install these plugins.
 call plug#begin('~/.vim/plugged')
 
     " Preview .md files in browser
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-
-    " Code completion
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     " Fancy status line
     Plug 'itchyny/lightline.vim'
@@ -46,18 +46,22 @@ call plug#begin('~/.vim/plugged')
     " Distraction free Markdown editing
     Plug 'junegunn/goyo.vim'
 
-    " Solidity syntax highlighting.
-    Plug 'tomlion/vim-solidity'
-
     " Comment out lines easily. Use `gcc` to comment/uncomment lines.
     Plug 'tpope/vim-commentary'
 
-    " Nice Git integration.
-    Plug 'tpope/vim-fugitive'
+    " Nice tab management with BarBar.
+    Plug 'lewis6991/gitsigns.nvim' " OPTIONAL: for git status
+    Plug 'nvim-tree/nvim-web-devicons' "\ OPTIONAL: for file icons
+    Plug 'romgrk/barbar.nvim'
 
 call plug#end()
-" -------------------------------------------
 
+" ==============================================================================
+
+
+
+" PLUGIN CONFIGURATIONS
+" ==============================================================================
 
 " Lightline configuration
 " -----------------------
@@ -76,18 +80,47 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " ----------------------
 
 
+" BarBar tab management keybindings.
+" -------------------------------------------------
+" Move to previous/next.
+nnoremap <silent>    <A-,> <Cmd>BufferPrevious<CR>
+nnoremap <silent>    <A-.> <Cmd>BufferNext<CR>
+
+" Goto buffer in position.
+nnoremap <silent>    <A-1> <Cmd>BufferGoto 1<CR>
+nnoremap <silent>    <A-2> <Cmd>BufferGoto 2<CR>
+nnoremap <silent>    <A-3> <Cmd>BufferGoto 3<CR>
+nnoremap <silent>    <A-4> <Cmd>BufferGoto 4<CR>
+nnoremap <silent>    <A-5> <Cmd>BufferGoto 5<CR>
+nnoremap <silent>    <A-6> <Cmd>BufferGoto 6<CR>
+nnoremap <silent>    <A-7> <Cmd>BufferGoto 7<CR>
+nnoremap <silent>    <A-8> <Cmd>BufferGoto 8<CR>
+nnoremap <silent>    <A-9> <Cmd>BufferGoto 9<CR>
+nnoremap <silent>    <A-0> <Cmd>BufferLast<CR>
+
+" Close buffer
+nnoremap <silent>    <A-c> <Cmd>BufferClose<CR>
+" -------------------------------------------------
+
+" ==============================================================================
+
+
 
 " KEY MAPS & KEY HACKS 
-" -----------------------------------------------
+" ==============================================================================
+
 " Sets the leader (command key) to spacebar.
 let mapleader = " "
+
 
 " Keep the cursor in the center of the screen.
 nnoremap j jzz
 nnoremap k kzz
 
+
 " Toggle word-wrap.
 nnoremap <leader>ww :set wrap!<CR>
+
 
 " If you accidentally use W or Q, it doesn't matter.
 :command WQ wq
@@ -95,15 +128,6 @@ nnoremap <leader>ww :set wrap!<CR>
 :command W w
 :command Q q
 
-" Enable and disable CoC.
-function ToggleCoc()
-    if g:coc_enabled
-        CocDisable
-    else
-        CocEnable
-    endif
-endfunction
-map <leader>cc :call ToggleCoc()<CR>
 
 " Enable focus writing mode.
 function Focus()
@@ -113,4 +137,5 @@ function Focus()
     CocDisable
 endfunction
 map <leader>fo :call Focus()<CR>
-" -----------------------------------------------
+
+" ==============================================================================
