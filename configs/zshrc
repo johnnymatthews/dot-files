@@ -1,42 +1,30 @@
-# OPEN TMUX FIRST
-# ---------------
-if [ "$TMUX" = "" ]; then tmux; fi
-# TERM=xterm
-# ---------------
-
-GPG_TTY=`tty`
-export GPG_TTY
-
-
 # PLUGINS
 # -------
 # Run `rm "$ZSH_COMPDUMP" && exec zsh` after changing these plugins
 plugins=(
     pass 
     git 
-    zsh-syntax-highlighting
 )
 # -------
 
 
-# THEME
-# -----
-source ~/.config/zsh/minimal.zsh
-# -----
-
 
 # EXPORTS
 # ------------
-# export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/Users/johnny/Applications/go/bin
+export PATH="$PATH:/Users/johnny/.foundry/bin"
 # ------------
 
 
 # ALIASES
 # -------
-alias l="ls -l"
+alias l="ls -l --color"
+alias ls="ls --color"
 alias cd..="cd .."
-alias tmux_tri="tmux new-session \; split-window -v \; split-window -h"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ~cd="cd ~/"
+alias tt="tmux new-session \; split-window -v \; split-window -h"
 # -------
 
 
@@ -50,26 +38,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # UTILITY FUNCTIONS
 # -----------------
-# Copy contents of file to clipboard.
-case `uname` in # Filter between MacOS and Linux 
-    Linux)
-        function copy() {
-            cat $1 | xclip -i -selection clipboard
-        }
-    ;;
-    Darwin)
-        function copy() {
-            pbcopy < $1
-        }
-    ;;
-esac
-
-# Stop the VPN blocking issue and restart it.
-function reset_vpn() {
-    nmcli connection delete pvpn-ipv6leak-protection
-    protonvpn-cli connect --fastest
-}
-
 # Convert file to mp3
 function convert_to_mp3() {
     trimmed=$(echo "$1" | cut -f 1 -d '.')
@@ -89,6 +57,7 @@ function get_lorem_ipsum() {
 
 
 
+
 # Use Neovim if it exists.
 # ------------------------
 if type nvim > /dev/null 2>&1; then
@@ -96,14 +65,6 @@ if type nvim > /dev/null 2>&1; then
 fi
 # ------------------------
 
-
-
-# DEFAULT ZSH SETTINGS
-# --------------------
-export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
-cd ~
-# --------------------
 
 
 
@@ -132,6 +93,10 @@ preexec() {                             # Use beam shape cursor for each new pro
 }
 # ---------------
 
-export PATH="$PATH:/Users/johnny/.foundry/bin"
+
+
+# END OF RC CONFIGS
+# -----------------
+# Use Starship shell.
 eval "$(starship init zsh)"
-export PATH="/opt/homebrew/opt/gnupg@2.2/bin:$PATH"
+# -----------------
