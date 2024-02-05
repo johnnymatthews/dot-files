@@ -137,7 +137,7 @@ nnoremap k kzz
 
 
 " Toggle word-wrap.
-nnoremap <leader>two :set wrap!<CR>
+nnoremap <leader>tw :set wrap!<CR>
 
 
 " If you accidentally use W or Q, it doesn't matter.
@@ -153,10 +153,10 @@ function Focus()
     set linebreak
     hi CursorLine cterm=none
 endfunction
-map <leader>tfo :call Focus()<CR>
+map <leader>tf :call Focus()<CR>
 
 
 " Toggle git in a new floating terminal window.
-map <leader>tgi :FloatermNew lazygit<CR>
+map <leader>tg :FloatermNew lazygit<CR>
 
 " ==============================================================================
