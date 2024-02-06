@@ -35,9 +35,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
     " Fuzzy finder search thingy.
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
     " Preview .md files in browser
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
@@ -111,13 +109,10 @@ nnoremap <silent>    <A-c> <Cmd>BufferClose<CR>
 " -------------------------------------------------
 
 
-" Telescope seacher config.
+" FZF seacher config.
 " -------------------------------------------------
-" Find files using Telescope command-line sugar.
-" nnoremap <leader>ff <cmd>Telescope find_files<cr>
-" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-" nnoremap <leader>fb <cmd>Telescope buffers<cr>
-" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+" Open FZF
+nnoremap <silent>    <A-f> <Cmd>FZF<CR>
 " -------------------------------------------------
 
 " ==============================================================================
