@@ -1,0 +1,31 @@
+import = [
+  # Uncomment to select a flavour.
+  # "~/.config/alacritty/catppuccin-latte.toml"
+  "~/.config/alacritty/catppuccin-frappe.toml"
+  # "~/.config/alacritty/catppuccin-macchiato.toml"
+  # "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
+[font]
+size = 14.0
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[window]
+decorations = "None"
+option_as_alt = "Both"
+startup_mode = "Maximized"
+
+[window.padding]
+x = 0
+y = 0

@@ -73,6 +73,17 @@ alias vim="nvim"
 
 
 
+# ---------
+# Functions
+# ---------
+# Convert file to mp3
+function convert_to_mp3() {
+   trimmed=$(echo "$1" | cut -f 1 -d '.')
+   ffmpeg -i "$1" -f mp3 "$trimmed.mp3"
+}
+
+
+
 # ------------------
 # Extension options.
 # ------------------
@@ -83,3 +94,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # Zoxide
 eval "$(zoxide init --cmd cd zsh)"
+
+# Hide Bluesnooze icon in menubar.
+if pgrep -xq Bluesnooze; then
+    defaults write com.oliverpeate.Bluesnooze hideIcon -bool true && killall Bluesnooze
+fi
+
