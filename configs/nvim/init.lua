@@ -185,6 +185,9 @@ require('lazy').setup({
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
+-- Disable auto-magic pasting stuff, like comments.
+vim.o.paste = true
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -230,9 +233,15 @@ vim.o.termguicolors = false
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
--- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- Keep focused line in centre of screen.
+vim.api.nvim_set_keymap('n', 'j', 'jzz', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'k', 'kzz', {noremap = true, silent = true})
+
+-- Still save and quit on WQ, W, or Q.
+vim.cmd("command WQ wq")
+vim.cmd("command Wq wq")
+vim.cmd("command W w")
+vim.cmd("command Q q")
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
