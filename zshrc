@@ -1,11 +1,3 @@
-# -------------------------
-# Theme and prompt options.
-# -------------------------
-source ~/.config/zsh/git-prompt-zsh/git-prompt.zsh
-source ~/.config/zsh/git-prompt-zsh/examples/pure.zsh
-
-
-
 # ----------------------
 # Change default options.
 # ----------------------
@@ -81,6 +73,14 @@ function convert_to_mp3() {
    trimmed=$(echo "$1" | cut -f 1 -d '.')
    ffmpeg -i "$1" -f mp3 "$trimmed.mp3"
 }
+
+
+
+# -------------------------
+# Theme and prompt options.
+# -------------------------
+source ~/.config/zsh/git-prompt-zsh/git-prompt.zsh
+source ~/.config/zsh/git-prompt-zsh/examples/pure.zsh
 
 
 
