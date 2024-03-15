@@ -83,3 +83,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Zoxide
 eval "$(zoxide init --cmd cd zsh)"
+
+# Open Tmux.
+if [ "$TMUX" = "" ]; then tmux; fi
