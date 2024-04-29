@@ -7,7 +7,7 @@ import = [
 ]
 
 [font]
-size = 14.0
+size = 12.0
 
 [font.glyph_offset]
 x = 0
@@ -29,3 +29,8 @@ startup_mode = "Maximized"
 [window.padding]
 x = 0
 y = 0
+
+# Uncomment to open Ubuntu on WSL.
+[shell]
+args = ["--cd ~"]
+program = 'C:\Windows\System32\wsl.exe'
