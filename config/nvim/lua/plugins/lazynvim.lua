@@ -17,19 +17,11 @@ require('lazy').setup({
   'nvim-tree/nvim-web-devicons',
   'lewis6991/gitsigns.nvim',
   'nvim-treesitter/nvim-treesitter',
-  'nvim-lua/plenary.nvim',
   'nvim-lualine/lualine.nvim',
   { 
     "catppuccin/nvim", 
     name = "catppuccin", 
     priority = 1000 
-  },
-  {
-    'nvim-telescope/telescope.nvim', 
-    tag = '0.1.6',
-    dependencies = { 
-      'nvim-lua/plenary.nvim' 
-    }
   },
   {
     'neovim/nvim-lspconfig',
@@ -41,4 +33,12 @@ require('lazy').setup({
       'williamboman/mason-lspconfig.nvim',
     },
   },
-  });
+  {
+    "ibhagwan/fzf-lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      -- calling `setup` is optional for customization
+      require("fzf-lua").setup({})
+    end
+  },
+});

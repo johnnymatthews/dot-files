@@ -1,7 +1,7 @@
 require("plugins.config.catppuccin")
+require("plugins.config.fzf-lua")
 require("plugins.config.gitsigns")
 require("plugins.config.lsp_config")
 require("plugins.config.lualine")
 require("plugins.config.nvim-tree")
-require("plugins.config.telescope")
 require("plugins.config.treesitter")

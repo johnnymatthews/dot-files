@@ -1,9 +1,6 @@
 -- Disable auto-magic pasting stuff, like comments.
 vim.o.paste = true
 
--- Set highlight on search
-vim.o.hlsearch = false
-
 -- Make line numbers default
 vim.wo.number = true
 vim.wo.relativenumber = true
@@ -12,8 +9,6 @@ vim.wo.relativenumber = true
 vim.o.mouse = 'a'
 
 -- Don't sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
 -- vim.o.clipboard = 'unnamedplus'
 vim.o.clipboard = ''
 
@@ -40,12 +35,6 @@ vim.o.completeopt = 'menuone,noselect'
 -- Disable Neovim theming and just use terminal colours.
 vim.o.termguicolors = false
 
--- [[ Basic Keymaps ]]
-
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-
 -- Keep focused line in centre of screen.
 vim.o.scrolloff = 999
 
@@ -55,8 +44,7 @@ vim.cmd("command Wq wq")
 vim.cmd("command W w")
 vim.cmd("command Q q")
 
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
+-- Highlight on yank function
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
