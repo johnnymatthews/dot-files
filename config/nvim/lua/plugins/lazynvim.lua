@@ -17,6 +17,7 @@ require('lazy').setup({
   'nvim-tree/nvim-web-devicons',
   'lewis6991/gitsigns.nvim',
   'nvim-treesitter/nvim-treesitter',
+  'junegunn/goyo.vim',
   'nvim-lualine/lualine.nvim',
   { 
     "catppuccin/nvim", 
