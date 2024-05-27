@@ -7,19 +7,13 @@
 1. Install apt packages:
 
 	```shell
-	sudo apt install cmus tmux xclip zsh -y
+	sudo apt install atool cmus htop tmux snapd xclip zsh -y
 	```
 	
 1. Install oh-my-zsh:
 
 	```shell
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-	```
-
-1. Install Snap
-
-	```shell
-	sudo apt install snapd
 	```
 	
 1. Install Snap packages:
@@ -33,6 +27,12 @@
 	sudo snap install transmission
 	sudo snap install vlc
 	sudo snap install yt-dlp
+	```
+	
+1. Install Node Version Manager:
+
+	```shell
+	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 	```
 	
 1. Install [Gnome Extensions browser add-on](https://extensions.gnome.org/)
