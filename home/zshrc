@@ -1,16 +1,9 @@
-# ----------------------
-# Change default options.
-# ----------------------
-# Path to your oh-my-zsh installation.
+# ----------------
+# Enable oh-my-zsh
+# ----------------
 export ZSH="$HOME/.config/oh-my-zsh"
-
-# Update oh-my-zsh automatically.
-zstyle ':omz:update' mode auto      # update automatically without asking
-
-# Uncomment the following line to change how often to auto-update (in days).
+zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 1
-
-# Load oh-my-zsh framework.
 source $ZSH/oh-my-zsh.sh
 # ----------------------
 
@@ -23,9 +16,23 @@ plugins=(git)
 # -------
 
 
+# -------
+# Aliases
+# -------
+alias vim="nvim"
+# -------
 
-# Vim-mode config
-# ---------------
+
+
+# -------------------------
+# Theme and prompt options.
+# -------------------------
+source ~/.config/zsh/git-prompt-zsh/git-prompt.zsh
+source ~/.config/zsh/git-prompt-zsh/examples/pure.zsh
+
+
+# Enable Vim-mode for ZSH
+# -----------------------
 bindkey -v                              # Active Vim mode.
 KEYTIMEOUT=5                            # Remove mode switching delay.
 
@@ -47,23 +54,21 @@ echo -ne '\e[5 q'                       # Use beam shape cursor on startup.
 preexec() {                             # Use beam shape cursor for each new prompt.
    echo -ne '\e[5 q'
 }
-# ---------------
+# -----------------------
 
 
 
-# -------
-# Aliases
-# -------
-alias vim="nvim"
-# -------
-
-
-
-# -------------------------
-# Theme and prompt options.
-# -------------------------
-source ~/.config/zsh/git-prompt-zsh/git-prompt.zsh
-source ~/.config/zsh/git-prompt-zsh/examples/pure.zsh
+# App management
+# --------------
+# Hide Bluesnooze icon (macOS only)
+if [[ $(uname -s) == "Darwin" ]]; then
+  if pgrep -f "Bluesnooze" > /dev/null 2>&1; then
+    # Hide icon and kill Bluesnooze
+    defaults write com.oliverpeate.Bluesnooze hideIcon -bool true
+    killall Bluesnooze
+  fi
+fi
+# --------------
 
 
 
