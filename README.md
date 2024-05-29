@@ -23,7 +23,6 @@ ssh-keygen -t ed25519 -C "NAME_HERE"
 # Install oh-my-zsh.
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-
 # Install Lazygit.
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
@@ -56,6 +55,9 @@ cp ~/dot-files/config/* ~/.config/
 # Move ~ specific configs to home.
 cp ~/dot-files/home/zshrc ~/.zshrc
 cp ~/dot-files/home/gitconfig ~/.gitconfig
+
+# Grab Nvim setup from Git.
+git clone https://github.com/johnnymatthews/simple-nvim ~/.config/nvim
 
 # Move the oh-my-zsh stuff into config folder.
 mv ~/.oh-my-zsh ~/.config/oh-my-zsh
