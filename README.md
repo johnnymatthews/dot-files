@@ -23,8 +23,6 @@ ssh-keygen -t ed25519 -C "NAME_HERE"
 # Install oh-my-zsh.
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# Download the git-prompt repo.
-git clone --depth=1 https://github.com/woefe/git-prompt.zsh ~/.config/zsh/git-prompt-zsh
 
 # Install Lazygit.
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
@@ -46,6 +44,27 @@ curl -fsSL https://get.pnpm.io/install.sh | sh -
 
 # Install Rust.
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+Once all that's done, close and reopen the terminal and run:
+
+```shell
+# Move things to ~/.config.
+mkdir ~/.config
+cp ~/dot-files/config/* ~/.config/
+
+# Move ~ specific configs to home.
+cp ~/dot-files/home/zshrc ~/.zshrc
+cp ~/dot-files/home/gitconfig ~/.gitconfig
+
+# Move the oh-my-zsh stuff into config folder.
+mv ~/.oh-my-zsh ~/.config/oh-my-zsh
+
+# Download the git-prompt repo.
+git clone --depth=1 https://github.com/woefe/git-prompt.zsh ~/.config/zsh/git-prompt-zsh
+
+# Source the ~/.zshrc file.
+source ~/.zshrc
 ```
 
 Install the following extras, if you fancy. They're mostly GUI installers though.
