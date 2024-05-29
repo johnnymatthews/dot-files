@@ -10,58 +10,94 @@ Lastly, `gitconfig` and `zshrc` need to be moved to `~/`, and a `.` added at the
 
 Follow these steps to get everything I need installed for Ubuntu-based systems.
 
-1. General updates and upgrades:
+1.  General updates and upgrades:
 
-	```shell
-	sudo apt update -y && sudo apt upgrade -y
-	```
-	
-1. Install apt packages:
+        ```shell
+        sudo apt update -y && sudo apt upgrade -y
+        ```
 
-	```shell
-	sudo apt install atool cmus htop tmux snapd xclip zsh -y
-	```
-	
-1. Install oh-my-zsh:
+1.  Install apt packages:
 
-	```shell
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-	```
-	
-1. Install Snap packages:
+        ```shell
+        sudo apt install atool build-essential cmus htop tmux snapd xclip zsh -y
+        ```
 
-	```shell
-	sudo snap install alacritty --classic
-	sudo snap install bitwarden
-	sudo snap install ffmpeg
-	sudo snap install mc-installer
-	sudo snap install nvim --classic
-	sudo snap install transmission
-	sudo snap install vlc
-	sudo snap install yt-dlp
-	```
-	
-1. Install Node Version Manager:
+1. Generate SSH key:
+        
+        ```shell
+        ssh-keygen -t ed25519 -C "io@weaver"
+        ```
 
-	```shell
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-	```
-	
-1. Install [Gnome Extensions browser add-on](https://extensions.gnome.org/)
-1. Enable [Hide Top Bar](https://extensions.gnome.org/extension/545/hide-top-bar/)
-1. Install [Jetbrains Nerdfont](https://www.nerdfonts.com/font-downloads)
-1. Clone Catppuccin theme for Alacritty:
+1.  Install oh-my-zsh:
 
-    ```shell
-    mkdir -p ~/.config/alacritty
-    curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-latte.toml
-    curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-frappe.toml
-    curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-macchiato.toml
-    curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
-    ```
+        ```shell
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        ```
 
-1. Install Mega:
+1.  Download the git-prompt repo:
 
-	```shell
-	wget https://mega.nz/linux/repo/xUbuntu_23.10/amd64/megasync-xUbuntu_23.10_amd64.deb && sudo apt install \"$PWD/megasync-xUbuntu_23.10_amd64.deb\"
-	```
+        ```shell
+        git clone --depth=1 https://github.com/woefe/git-prompt.zsh ~/.config/zsh/git-prompt-zsh
+        ```
+
+1. Install Lazygit:
+
+        ```shell
+        LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+        curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+        tar xf lazygit.tar.gz lazygit
+        sudo install lazygit /usr/local/bin
+        ```
+
+1.  Install Node Version Manager:
+
+        ```shell
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+        ```
+
+1.  Install Node:
+
+        ```shell
+        nvm install node
+        ```
+
+1. Install Rust:
+
+        ```shell
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+        ```
+
+1.  Install [Gnome Extensions browser add-on](https://extensions.gnome.org/)
+1.  Enable [Hide Top Bar](https://extensions.gnome.org/extension/545/hide-top-bar/)
+1.  Install [Jetbrains Nerdfont](https://www.nerdfonts.com/font-downloads)
+1.  Clone Catppuccin theme for Alacritty:
+
+        ```shell
+        mkdir -p ~/.config/alacritty
+        curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-latte.toml
+        curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-frappe.toml
+        curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-macchiato.toml
+        curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
+        ```
+
+1.  Install Mega:
+
+        ```shell
+        wget https://mega.nz/linux/repo/xUbuntu_23.10/amd64/megasync-xUbuntu_23.10_amd64.deb && sudo apt install \"$PWD/megasync-xUbuntu_23.10_amd64.deb\"
+        ```
+
+1.  Install Snap packages:
+
+        ```shell
+        sudo snap install alacritty --classic
+        sudo snap install bitwarden
+        sudo snap install ffmpeg
+        sudo snap install mc-installer
+        sudo snap install nvim --classic
+        sudo snap install transmission
+        sudo snap install vlc
+        sudo snap install yt-dlp
+        ```
