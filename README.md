@@ -10,65 +10,45 @@ Lastly, `gitconfig` and `zshrc` need to be moved to `~/`, and a `.` added at the
 
 Follow these steps to get everything I need installed for Ubuntu-based systems.
 
-1.  General updates and upgrades:
+```shell
+# General updates and upgrades.
+sudo apt update -y && sudo apt upgrade -y
 
-        ```shell
-        sudo apt update -y && sudo apt upgrade -y
-        ```
+# Install apt packages.
+sudo apt install atool build-essential cmus htop tmux snapd xclip zsh -y
 
-1.  Install apt packages:
+# Generate SSH key.
+ssh-keygen -t ed25519 -C "NAME_HERE"
 
-        ```shell
-        sudo apt install atool build-essential cmus htop tmux snapd xclip zsh -y
-        ```
+# Install oh-my-zsh.
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-1. Generate SSH key:
-        
-        ```shell
-        ssh-keygen -t ed25519 -C "io@weaver"
-        ```
+# Download the git-prompt repo.
+git clone --depth=1 https://github.com/woefe/git-prompt.zsh ~/.config/zsh/git-prompt-zsh
 
-1.  Install oh-my-zsh:
+# Install Lazygit.
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin
 
-        ```shell
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-        ```
+# Install Node Version Manager.
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
-1.  Download the git-prompt repo:
+# Install Node.
+nvm install node
 
-        ```shell
-        git clone --depth=1 https://github.com/woefe/git-prompt.zsh ~/.config/zsh/git-prompt-zsh
-        ```
+# Install PNPM.
+curl -fsSL https://get.pnpm.io/install.sh | sh -
 
-1. Install Lazygit:
+# Install Rust.
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
 
-        ```shell
-        LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-        curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-        tar xf lazygit.tar.gz lazygit
-        sudo install lazygit /usr/local/bin
-        ```
-
-1.  Install Node Version Manager:
-
-        ```shell
-        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-        export NVM_DIR="$HOME/.nvm"
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-        ```
-
-1.  Install Node:
-
-        ```shell
-        nvm install node
-        ```
-
-1. Install Rust:
-
-        ```shell
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-        ```
+Install the following extras, if you fancy. They're mostly GUI installers though.
 
 1.  Install [Gnome Extensions browser add-on](https://extensions.gnome.org/)
 1.  Enable [Hide Top Bar](https://extensions.gnome.org/extension/545/hide-top-bar/)
@@ -101,3 +81,5 @@ Follow these steps to get everything I need installed for Ubuntu-based systems.
         sudo snap install vlc
         sudo snap install yt-dlp
         ```
+
+1. Done!
