@@ -15,7 +15,7 @@ Follow these steps to get everything I need installed for Ubuntu-based systems.
 sudo apt update -y && sudo apt upgrade -y
 
 # Install apt packages.
-sudo apt install atool build-essential cmus htop tmux snapd xclip zsh -y
+sudo apt install atool build-essential cmus htop pandoc tmux snapd xclip zsh -y
 
 # Generate SSH key.
 ssh-keygen -t ed25519 -C "NAME_HERE"
