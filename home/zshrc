@@ -1,3 +1,11 @@
+# OPEN TMUX FIRST
+# ---------------
+if [ "$TMUX" = "" ]; then tmux; fi
+TERM=xterm
+# ---------------
+
+
+
 # ----------------
 # Enable oh-my-zsh
 # ----------------
