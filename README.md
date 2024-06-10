@@ -1,10 +1,83 @@
-# Config
+# Dot files
 
-My collection of configuration files, along with some repos that are useful to have. Everything in `/config` belongs in `~/.config`. So running something like `cp -r ./config/* ~/.config/` would probably get everything sorted.
+My collection of configuration files, along with some repos that are useful to have. Everything within `firefox` is specific to getting vertical tabs enabled, and hiding the URL bar. See [johnnymatthews.dev/blog/2023-10-04-vertical-tabs-in-firefox](https://johnnymatthews.dev/blog/2023-10-04-vertical-tabs-in-firefox/) for more info on that.
 
-Everything within `firefox` is specific to getting vertical tabs enabled, and hiding the URL bar. See [johnnymatthews.dev/blog/2023-10-04-vertical-tabs-in-firefox](https://johnnymatthews.dev/blog/2023-10-04-vertical-tabs-in-firefox/) for more info on that.
+## MacOS
 
-Lastly, `gitconfig` and `zshrc` need to be moved to `~/`, and a `.` added at the start. So running `cp ./gitconfig ~/.gitconfig && cp ./zshrc ~/.zshrc` would probably work.
+Follow these steps to get everything needed on MacOS:
+
+1. Install Homebrew:
+
+    ```shell
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/johnny/.zprofile\n    eval "$(/opt/homebrew/bin/brew shellenv)"
+    ```
+
+1. Install Homebrew packages:
+
+    ```shell
+    brew install --cask firefox
+    brew install --cask alacritty
+    brew install --cask alt-tab
+    brew install --cask bitwarden
+    brew install --cask firefox
+    brew install neovim —HEAD
+    brew install --cask rectangle
+    brew install cmus
+    brew install tmux
+    ```
+
+1. Install Node Version Manager:
+
+    ```shell
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash_completion
+    export NVM_DIR="$HOME/.nvm"\n[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm\n[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completio
+    ```
+
+1. Install Node and NPM:
+
+    ```shell
+    nvm install --lts
+    ```
+
+1. Install Rust:
+
+    ```shell
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh 
+    ```
+
+    Follow the interactive steps.
+
+1. Install oh-my-zsh:
+
+    ```shell
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    mv ~/.oh-my-zsh ~/.config/oh-my-zsh
+    ```
+
+1. Clone dot-files and move them around:
+
+    ```shell
+    mkdir ~/Code
+    git clone https://github.com/johnnymatthews/dot-files ~/Code/dot-files
+    cp -r ~/Code/dot-files/config ~/.config
+    cp ~/Code/dot-files/home/zshrc ~/.zshrc
+    cp ~/Code/dot-files/home/gitconfig ~/.gitconfig
+    ```
+
+1. Install Tmux Plugin Manager:
+
+    ```shell
+    git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+    ```
+
+1. Clone Simple Nvim:
+
+    ```shell
+    git clone https://github.com/johnnymatthews/simple-nvim ~/.config/nvim
+    ```
+
+That's about it!
 
 ## Ubuntu
 
