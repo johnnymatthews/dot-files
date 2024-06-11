@@ -40,6 +40,12 @@ Follow these steps to get everything needed on MacOS:
     nvm install --lts
     ```
 
+1. Install PNPM:
+
+    ```shell
+    curl -fsSL https://get.pnpm.io/install.sh | sh -
+    ```
+
 1. Install Rust:
 
     ```shell
