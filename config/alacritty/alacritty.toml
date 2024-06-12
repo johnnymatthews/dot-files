@@ -1,3 +1,6 @@
+[env]
+TERM = "xterm-256color"
+
 [font]
 size = 12.0
 
@@ -23,174 +26,172 @@ x = 0
 y = 0
 
 # Uncomment to open Ubuntu on WSL.
-# [shell]
-# args = ["--cd ~"]
-# program = 'C:\Windows\System32\wsl.exe'
-
-
-# Dark mode.
-[colors.primary]
-background = "#1E1E2E"
-foreground = "#CDD6F4"
-dim_foreground = "#CDD6F4"
-bright_foreground = "#CDD6F4"
-
-[colors.cursor]
-text = "#1E1E2E"
-cursor = "#F5E0DC"
-
-[colors.vi_mode_cursor]
-text = "#1E1E2E"
-cursor = "#B4BEFE"
-
-[colors.search.matches]
-foreground = "#1E1E2E"
-background = "#A6ADC8"
-
-[colors.search.focused_match]
-foreground = "#1E1E2E"
-background = "#A6E3A1"
-
-[colors.footer_bar]
-foreground = "#1E1E2E"
-background = "#A6ADC8"
-
-[colors.hints.start]
-foreground = "#1E1E2E"
-background = "#F9E2AF"
-
-[colors.hints.end]
-foreground = "#1E1E2E"
-background = "#A6ADC8"
-
-[colors.selection]
-text = "#1E1E2E"
-background = "#F5E0DC"
-
-[colors.normal]
-black = "#45475A"
-red = "#F38BA8"
-green = "#A6E3A1"
-yellow = "#F9E2AF"
-blue = "#89B4FA"
-magenta = "#F5C2E7"
-cyan = "#94E2D5"
-white = "#BAC2DE"
-
-[colors.bright]
-black = "#585B70"
-red = "#F38BA8"
-green = "#A6E3A1"
-yellow = "#F9E2AF"
-blue = "#89B4FA"
-magenta = "#F5C2E7"
-cyan = "#94E2D5"
-white = "#A6ADC8"
-
-[colors.dim]
-black = "#45475A"
-red = "#F38BA8"
-green = "#A6E3A1"
-yellow = "#F9E2AF"
-blue = "#89B4FA"
-magenta = "#F5C2E7"
-cyan = "#94E2D5"
-white = "#BAC2DE"
-
-[[colors.indexed_colors]]
-index = 16
-color = "#FAB387"
-
-[[colors.indexed_colors]]
-index = 17
-color = "#F5E0DC"
+[shell]
+args = ["--cd ~"]
+program = 'C:\Windows\System32\wsl.exe'
 
 
 
 
-# Light mode.
+## LIGHT
+## =====
 # [colors.primary]
-# background = "#EFF1F5"
-# foreground = "#4C4F69"
-# dim_foreground = "#4C4F69"
-# bright_foreground = "#4C4F69"
+# background = "#eff1f5"
+# foreground = "#4c4f69"
+# dim_foreground = "#8c8fa1"
+# bright_foreground = "#4c4f69"
 #
 # [colors.cursor]
-#
-# text = "#EFF1F5"
-# cursor = "#DC8A78"
-#
+# text = "#eff1f5"
+# cursor = "#dc8a78"
 #
 # [colors.vi_mode_cursor]
-# text = "#EFF1F5"
-# cursor = "#7287FD"
-#
+# text = "#eff1f5"
+# cursor = "#7287fd"
 #
 # [colors.search.matches]
-# foreground = "#EFF1F5"
-# background = "#6C6F85"
+# foreground = "#eff1f5"
+# background = "#6c6f85"
 #
 # [colors.search.focused_match]
-# foreground = "#EFF1F5"
-# background = "#40A02B"
-#
+# foreground = "#eff1f5"
+# background = "#40a02b"
 #
 # [colors.footer_bar]
-# foreground = "#EFF1F5"
-# background = "#6C6F85"
-#
+# foreground = "#eff1f5"
+# background = "#6c6f85"
 #
 # [colors.hints.start]
-# foreground = "#EFF1F5"
-# background = "#DF8E1D"
+# foreground = "#eff1f5"
+# background = "#df8e1d"
 #
 # [colors.hints.end]
-# foreground = "#EFF1F5"
-# background = "#6C6F85"
-#
+# foreground = "#eff1f5"
+# background = "#6c6f85"
 #
 # [colors.selection]
-# text = "#EFF1F5"
-# background = "#DC8A78"
+# text = "#eff1f5"
+# background = "#dc8a78"
 #
 # [colors.normal]
-# black = "#5C5F77"
-# red = "#D20F39"
-# green = "#40A02B"
-# yellow = "#DF8E1D"
-#
-# blue = "#1E66F5"
-#
-# magenta = "#EA76CB"
+# black = "#bcc0cc"
+# red = "#d20f39"
+# green = "#40a02b"
+# yellow = "#df8e1d"
+# blue = "#1e66f5"
+# magenta = "#ea76cb"
 # cyan = "#179299"
-# white = "#ACB0BE"
+# white = "#5c5f77"
 #
 # [colors.bright]
-# black = "#6C6F85"
-# red = "#D20F39"
-# green = "#40A02B"
-# yellow = "#DF8E1D"
-# blue = "#1E66F5"
-# magenta = "#EA76CB"
+# black = "#acb0be"
+# red = "#d20f39"
+# green = "#40a02b"
+# yellow = "#df8e1d"
+# blue = "#1e66f5"
+# magenta = "#ea76cb"
 # cyan = "#179299"
-# white = "#BCC0CC"
-#
+# white = "#6c6f85"
 #
 # [colors.dim]
-# black = "#5C5F77"
-# red = "#D20F39"
-# green = "#40A02B"
-# yellow = "#DF8E1D"
-# blue = "#1E66F5"
-# magenta = "#EA76CB"
+# black = "#bcc0cc"
+# red = "#d20f39"
+# green = "#40a02b"
+# yellow = "#df8e1d"
+# blue = "#1e66f5"
+# magenta = "#ea76cb"
 # cyan = "#179299"
-# white = "#ACB0BE"
+# white = "#5c5f77"
 #
 # [[colors.indexed_colors]]
 # index = 16
-# color = "#FE640B"
+# color = "#fe640b"
 #
 # [[colors.indexed_colors]]
 # index = 17
-# color = "#DC8A78"
-#
+# color = "#dc8a78"
+
+
+
+
+
+
+
+
+# DARK
+# ====
+[colors.primary]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+dim_foreground = "#7f849c"
+bright_foreground = "#cdd6f4"
+
+[colors.cursor]
+text = "#1e1e2e"
+cursor = "#f5e0dc"
+
+[colors.vi_mode_cursor]
+text = "#1e1e2e"
+cursor = "#b4befe"
+
+[colors.search.matches]
+foreground = "#1e1e2e"
+background = "#a6adc8"
+
+[colors.search.focused_match]
+foreground = "#1e1e2e"
+background = "#a6e3a1"
+
+[colors.footer_bar]
+foreground = "#1e1e2e"
+background = "#a6adc8"
+
+[colors.hints.start]
+foreground = "#1e1e2e"
+background = "#f9e2af"
+
+[colors.hints.end]
+foreground = "#1e1e2e"
+background = "#a6adc8"
+
+[colors.selection]
+text = "#1e1e2e"
+background = "#f5e0dc"
+
+[colors.normal]
+black = "#45475a"
+red = "#f38ba8"
+green = "#a6e3a1"
+yellow = "#f9e2af"
+blue = "#89b4fa"
+magenta = "#f5c2e7"
+cyan = "#94e2d5"
+white = "#bac2de"
+
+[colors.bright]
+black = "#585b70"
+red = "#f38ba8"
+green = "#a6e3a1"
+yellow = "#f9e2af"
+blue = "#89b4fa"
+magenta = "#f5c2e7"
+cyan = "#94e2d5"
+white = "#a6adc8"
+
+[colors.dim]
+black = "#45475a"
+red = "#f38ba8"
+green = "#a6e3a1"
+yellow = "#f9e2af"
+blue = "#89b4fa"
+magenta = "#f5c2e7"
+cyan = "#94e2d5"
+white = "#bac2de"
+
+[[colors.indexed_colors]]
+index = 16
+color = "#fab387"
+
+[[colors.indexed_colors]]
+index = 17
+color = "#f5e0dc"

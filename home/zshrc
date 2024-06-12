@@ -1,7 +1,6 @@
 # OPEN TMUX FIRST
 # ---------------
 if [ "$TMUX" = "" ]; then tmux -2; fi
-TERM=xterm
 # ---------------
 
 
