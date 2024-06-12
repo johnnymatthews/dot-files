@@ -21,7 +21,7 @@ Follow these steps to get everything needed on MacOS:
     brew install --cask alt-tab
     brew install --cask bitwarden
     brew install --cask firefox
-    brew install neovim —HEAD
+    brew install neovim
     brew install --cask rectangle
     brew install cmus
     brew install tmux
@@ -77,10 +77,11 @@ Follow these steps to get everything needed on MacOS:
     git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
     ```
 
-1. Clone Simple Nvim:
+1. Clone [Simple Nvim](https://github.com/johnnymatthews/simple-nvim) and open it to install everything:
 
     ```shell
     git clone https://github.com/johnnymatthews/simple-nvim ~/.config/nvim
+    vim
     ```
 
 That's about it!
@@ -183,4 +184,3 @@ Install the following extras, if you fancy. They're mostly GUI installers though
     ```
 
 1. Done!
-
