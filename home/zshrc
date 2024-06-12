@@ -93,3 +93,5 @@ export NVM_DIR="$HOME/.nvm"
 # Use Nvim for everything.
 export EDITOR='nvim'
 export VISUAL='nvim'
+
+alias luamake="/home/io/Code/lua-language-server/3rd/luamake/luamake"
