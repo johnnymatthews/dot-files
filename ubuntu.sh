@@ -1,10 +1,10 @@
+# General updates and upgrades.
+sudo apt update -y && sudo apt upgrade -y
+
 # Fix WSL time issue.
 sudo hwclock -s
 sudo apt install ntpdate -y
 sudo ntpdate time.nist.gov
-
-# General updates and upgrades.
-sudo apt update -y && sudo apt upgrade -y
 
 # Install apt packages.
 sudo apt install atool build-essential cmus htop jq pandoc tmux tree snapd xclip zsh -y
