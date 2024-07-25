@@ -5,29 +5,22 @@ if [ "$TMUX" = "" ]; then tmux -2; fi
 
 
 
-# ----------------
-# Enable oh-my-zsh
-# ----------------
-export ZSH="$HOME/.config/oh-my-zsh"
-zstyle ':omz:update' mode auto
-zstyle ':omz:update' frequency 1
-source $ZSH/oh-my-zsh.sh
-# ----------------------
-
-
-
-# -------
-# Plugins
-# -------
-plugins=(git)
-# -------
-
-
 # -------
 # Aliases
 # -------
 alias vim="nvim"
+alias ls="ls --color=tty"
+alias ll="ls -lah --color=tty"
+alias ..="cd .."
 # -------
+
+
+
+# --------------------------------
+# Case-insensitive auto-completion
+# --------------------------------
+autoload -U compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 
 
@@ -36,6 +29,7 @@ alias vim="nvim"
 # -------------------------
 source ~/.config/zsh/git-prompt-zsh/git-prompt.zsh
 source ~/.config/zsh/git-prompt-zsh/examples/pure.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 # Enable Vim-mode for ZSH
@@ -95,3 +89,4 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 
 alias luamake="/home/io/Code/lua-language-server/3rd/luamake/luamake"
+export PATH="$PATH:/opt/nvim-linux64/bin"
