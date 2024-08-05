@@ -11,6 +11,7 @@ if [ "$TMUX" = "" ]; then tmux -2; fi
 alias vim="nvim"
 alias ls="ls --color=tty"
 alias ll="ls -lah --color=tty"
+alias l="ls -lah --color=tty"
 alias ..="cd .."
 # -------
 
@@ -70,6 +71,13 @@ if [[ $(uname -s) == "Darwin" ]]; then
   fi
 fi
 # --------------
+
+
+
+# Function imports
+# ----------------
+source ~/.config/zsh/compress-images/compress-images.zsh
+# ---------
 
 
 
