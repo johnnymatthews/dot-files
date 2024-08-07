@@ -1,6 +1,6 @@
 [user]
-	email = 
-	name = 
+	email = "" 
+	name = "johnnymatthews"
 [push]
 	default = current
 [pager]
@@ -11,3 +11,5 @@
     cm = !git checkout $(git head-branch)
 [pull]
     rebase = false
+[init]
+	defaultBranch = main
