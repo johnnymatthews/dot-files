@@ -25,6 +25,12 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 
 
+# Reverse search hot-key
+# ----------------------
+bindkey "^R" history-incremental-search-backward
+# ----------------------
+
+
 # -------------------------
 # Theme and prompt options.
 # -------------------------
@@ -96,6 +102,6 @@ export NVM_DIR="$HOME/.nvm"
 # Use Nvim for everything.
 export EDITOR='nvim'
 export VISUAL='nvim'
+export PATH="$PATH:/opt/nvim-linux64/bin"
 
 alias luamake="/home/io/Code/lua-language-server/3rd/luamake/luamake"
-export PATH="$PATH:/opt/nvim-linux64/bin"
