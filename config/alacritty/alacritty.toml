@@ -26,9 +26,9 @@ x = 0
 y = 0
 
 # Uncomment to open Ubuntu on WSL.
-[shell]
-args = ["--cd ~"]
-program = 'C:\Windows\System32\wsl.exe'
+# [shell]
+# args = ["--cd ~"]
+# program = 'C:\Windows\System32\wsl.exe'
 
 
 
