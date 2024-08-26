@@ -7,7 +7,7 @@ sudo apt install ntpdate -y
 sudo ntpdate time.nist.gov
 
 # Install apt packages.
-sudo apt install atool build-essential cmus htop jq pandoc tmux tree snapd xclip zsh -y
+sudo apt install atool build-essential cmus htop jq pandoc tmux tree snapd xclip zsh zsh-syntax-highlighting -y
 
 # Generate SSH key.
 ssh-keygen -t ed25519 -C "io@weaver"
@@ -51,13 +51,8 @@ git clone --depth=1 https://github.com/woefe/git-prompt.zsh ~/.config/zsh/git-pr
 # Grab Nvim setup from Git.
 git clone https://github.com/johnnymatthews/simple-nvim ~/.config/nvim
 
-# Install oh-my-zsh to a custom location.
-export ZSH=~/.config/oh-my-zsh/
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-mv ~/.oh-my-zsh ~/.config/oh-my-zsh
-
 # Change shell to use ZSH.
-sudo chsh --shell /bin/zsh
+chsh --shell /bin/zsh
 
 # Move things to ~/.config.
 mkdir ~/.config
@@ -80,4 +75,4 @@ echo 'export PATH="$PATH:/opt/nvim-linux64/bin"' >> ~/.zshrc
 source ~/.zshrc
 
 # Clean up.
-rm -rf ~/lazygit ~/lazygit.tar.gz ~/nvim-linux64.tar.gz ~/.zshrc.pre-oh-my-zsh ~/.wget-hsts ~/.viminfo 
+rm -rf ~/lazygit ~/lazygit.tar.gz ~/nvim-linux64.tar.gz ~/.wget-hsts ~/.viminfo lazygit lazygit.tar.g
