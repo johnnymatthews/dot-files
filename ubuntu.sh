@@ -7,7 +7,7 @@ sudo apt install ntpdate -y
 sudo ntpdate time.nist.gov
 
 # Install apt packages.
-sudo apt install atool build-essential cmus htop jq pandoc tmux tree snapd xclip zsh zsh-syntax-highlighting -y
+sudo apt install atool build-essential cmus htop jpegoptim jq optipng pandoc parallel tmux tree snapd xclip zsh zsh-syntax-highlighting -y
 
 # Generate SSH key.
 ssh-keygen -t ed25519 -C "io@weaver"
