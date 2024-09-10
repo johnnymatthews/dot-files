@@ -1,5 +1,14 @@
 #Requires -RunAsAdministrator
 
+# --------------------------------------------------------
+# INFO: Install script for my personal Windows setup.
+# Requires admin privileges, so make sure you've got them.
+# AUTHOR: Johnny Matthews 
+# LINK: github.com/johnnymatthews
+# --------------------------------------------------------
+
+
+
 # Install apps using winget.
 # --------------------------
 winget install --id Mozilla.Firefox -e 
@@ -11,7 +20,6 @@ winget install --id Canonical.Ubuntu.2204 -e
 winget install --id Bitwarden.Bitwarden -e 
 winget install --id ProtonTechnologies.ProtonVPN -e 
 # --------------------------
-
 
 
 
@@ -39,7 +47,7 @@ try {
 
 	[int]$Elapsed = $StopWatch.Elapsed.TotalSeconds
 	"✔️ installed Windows Subsystem for Linux (WSL) in $Elapsed sec"
-	"  NOTE: reboot now, then visit the Microsoft Store and install a Linux distribution (e.g. Ubuntu, openSUSE, SUSE Linux, Kali Linux, Debian, Fedora, Pengwin, or Alpine)"
+	"  NOTE: reboot now, then visit the Microsoft Store and install a Linux distribution."
 	exit 0 # success
 } catch {
 	"⚠️ Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
