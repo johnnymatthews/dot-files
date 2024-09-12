@@ -184,3 +184,7 @@ Install the following extras, if you fancy. They're mostly GUI installers though
     ```
 
 1. Done!
+
+## Todo
+
+- [ ] Add Arch instructions.
