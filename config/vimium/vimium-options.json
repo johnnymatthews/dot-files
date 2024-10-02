@@ -1,5 +1,5 @@
 {
-  "keyMappings": "unmapAll\nmap f LinkHints.activateMode\nmap h scrollLeft\nmap j scrollDown\nmap k scrollUp\nmap l scrollRight\nmap G scrollToTop\nmap gg scrollToBottom",
+  "keyMappings": "unmapAll\nmap f LinkHints.activateMode\nmap h scrollLeft\nmap H goBack\nmap j scrollDown\nmap k scrollUp\nmap l scrollRight\nmap L goForward\nmap G scrollToTop\nmap gg scrollToBottom",
   "settingsVersion": "2.1.2",
   "exclusionRules": []
 }
