@@ -13,7 +13,6 @@ alias ls="ls --color=tty"
 alias ll="ls -lah --color=tty"
 alias l="ls -lah --color=tty"
 alias ..="cd .."
-alias open="xdg-open"
 # -------
 
 
@@ -31,7 +30,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # -------------------------
 source ~/.config/zsh/git-prompt-zsh/git-prompt.zsh
 source ~/.config/zsh/git-prompt-zsh/examples/pure.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 
 
 # Enable Vim-mode for ZSH
@@ -61,20 +61,6 @@ preexec() {                             # Use beam shape cursor for each new pro
 
 
 
-# App management
-# --------------
-# Hide Bluesnooze icon (macOS only)
-if [[ $(uname -s) == "Darwin" ]]; then
-  if pgrep -f "Bluesnooze" > /dev/null 2>&1; then
-    # Hide icon and kill Bluesnooze
-    defaults write com.oliverpeate.Bluesnooze hideIcon -bool true
-    killall Bluesnooze
-  fi
-fi
-# --------------
-
-
-
 # Function imports
 # ----------------
 source ~/.config/zsh/compress-images/compress-images.zsh
@@ -92,23 +78,23 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # For Rust stuff.
-. "$HOME/.cargo/env"
+. "$HOME/.cargo/env"            # For sh/bash/zsh/ash/dash/pdksh
 
 # Use Nvim for everything.
 export EDITOR='nvim'
 export VISUAL='nvim'
-export PATH="$PATH:/opt/nvim-linux64/bin"
 
-alias luamake="/home/io/Code/lua-language-server/3rd/luamake/luamake"
-export PATH="$PATH:/opt/nvim-linux64/bin"
+# PNPM installation.
+export PNPM_HOME="/Users/johnny/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
 # pnpm
-export PNPM_HOME="/home/johnny/.local/share/pnpm"
+export PNPM_HOME="/Users/johnny/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-# Bitwarden CLI
-export BW_SESSION="xdWJGmBT9d6lfCqoK+Bf05myGg2d9WKLEh2pedq0HrdvvwAglPILw8pnX6qDnzXz9qxwl2LivwQBaImebcNWpA=="
